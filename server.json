@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.pipeworx-io/australia-tenders",
+  "title": "Australia Tenders",
+  "description": "Australia Government Procurement MCP — AusTender OCDS (keyless).",
+  "version": "0.1.0",
+  "websiteUrl": "https://pipeworx.io/packs/australia-tenders",
+  "repository": {
+    "url": "https://github.com/pipeworx-io/mcp-australia-tenders",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gateway.pipeworx.io/australia-tenders/mcp"
+    }
+  ]
+}
