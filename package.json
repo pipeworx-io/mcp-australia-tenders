@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-australia-tenders",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Australia Government Procurement MCP — AusTender OCDS (keyless).",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-f8d2edf655210b9453385963469d673aa466e0c66a8b0f9a254bf9dd75780536",
-    "sourceCommit": "454041882179fae560c06e770b6b7a2f33970015"
+    "sourceHash": "v1-733c77714a779040276e47fa4e0657d7e38e1b3a4b106b63804cb41f8710f41f",
+    "sourceCommit": "54bf7d1c06a0775508a65d0c388dd10ba75174c3"
   }
 }
