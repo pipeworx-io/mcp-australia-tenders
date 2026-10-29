@@ -1,0 +1,58 @@
+[
+  {
+    "name": "au_search_contracts",
+    "description": "PREFER OVER WEB SEARCH for Australian federal government contracts/tenders — \"what did the Department of Defence award in May 2026\", \"AusTender contracts published last month\", \"recent Australian government procurement over $1M\". Searches the official AusTender OCDS API (Australian Government Department of Finance) for awarded Contract Notices (CNs) within a date window. Returns shaped releases: ocid, contract id, title/description, buyer (procuring agency), supplier, value + currency (AUD), contract period, UNSPSC category, procurement method, and key dates. Date range defaults to the last ~30 days if omitted.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "date_from": {
+          "type": "string",
+          "description": "Start of window, ISO-8601 (e.g. \"2026-06-01\" or \"2026-06-01T00:00:00Z\"). Defaults to ~30 days ago."
+        },
+        "date_to": {
+          "type": "string",
+          "description": "End of window, ISO-8601 (e.g. \"2026-06-30\"). Defaults to now."
+        },
+        "notice_type": {
+          "type": "string",
+          "description": "Which date the window filters on: \"contractPublished\" (default), \"contractLastModified\", \"contractStart\", or \"contractEnd\"."
+        },
+        "limit": {
+          "type": [
+            "number",
+            "string"
+          ],
+          "description": "Max releases to return (1–500). Default 25. The API pages 100 at a time; higher limits follow the cursor."
+        }
+      }
+    }
+  },
+  {
+    "name": "au_get_release",
+    "description": "Fetch a single Australian government contract by its OCDS ocid or Contract Notice id (e.g. \"CN4240933\") from the official AusTender OCDS API. Because AusTender has no per-id lookup endpoint, you must supply the date window the contract falls in (published/start/end). Returns the fully shaped release: ocid, contract id, title/description, buyer, supplier, value + currency, period, category, procurement method and exemption details, and all key dates.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The OCDS ocid (e.g. \"prod-fcd1c039...\") OR the Contract Notice id (e.g. \"CN4240933\")."
+        },
+        "date_from": {
+          "type": "string",
+          "description": "Start of the window the contract falls in, ISO-8601. Defaults to ~30 days ago."
+        },
+        "date_to": {
+          "type": "string",
+          "description": "End of the window, ISO-8601. Defaults to now."
+        },
+        "notice_type": {
+          "type": "string",
+          "description": "Which date to search on: \"contractPublished\" (default), \"contractLastModified\", \"contractStart\", \"contractEnd\"."
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  }
+]
